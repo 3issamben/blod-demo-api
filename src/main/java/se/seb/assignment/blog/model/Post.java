@@ -1,6 +1,11 @@
 package se.seb.assignment.blog.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.Instant;
 
 @Table(name = "post")
@@ -11,13 +16,20 @@ public class Post {
     @GeneratedValue
     private Long id;
 
+    @Size(min = 1, max = 100)
+    @NotNull
+    // Title is combination of letters and numbers
+    @Pattern(regexp = "^[A-Z0-9 ]+$")
     @Column(name = "title")
     private String title;
 
+    @Size(min = 1, max = 1000)
+    @NotNull
     @Column(name = "content")
     private String content;
 
-    @Column(name = "created_at")
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
 
