@@ -1,6 +1,7 @@
 package se.seb.assignment.blog.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import se.seb.assignment.blog.model.Post;
 import se.seb.assignment.blog.repository.PostRepository;
@@ -27,7 +28,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> getAllPosts() {
-        return postRepository.findAll();
+        return postRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
     }
 
     @Override
