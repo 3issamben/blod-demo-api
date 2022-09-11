@@ -9,4 +9,5 @@ public interface PostService {
     Post savePost(Post post);
     List<Post> getAllPosts();
     void deletePost(long id);
+    List<Post> getPostsByTags(List<String> tags);
 }
