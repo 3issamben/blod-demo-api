@@ -18,3 +18,14 @@ A blog entry needs to have the following data and constraints:
 -	**Title:** Is a mandatory string with a maximum length of 100 characters which should all be uppercase.
 -	**Content:** Is a mandatory string with a maximum length of 1000 characters.
 -	**Tags:** Is an optional list, each tag is a string with a maximum length of 30 characters which can only be letters, digits or '-'.
+
+## How to run
+
+build the jar application and docker image
+`make build`
+
+run unit tests
+`make test`
+
+run the application on localhost port 8080
+`make run`
