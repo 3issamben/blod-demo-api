@@ -27,5 +27,16 @@ build the jar application and docker image
 run unit tests
 `make test`
 
-run the application on localhost port 8080
+run the application on localhost port 8080 (docker)
 `make run`
+
+## Blog REST API
+
+### Posts
+
+| Method | Url            | Description                         |
+| ------ |----------------|-------------------------------------|
+| GET    | /api/post      | Get all blog enrties                |
+| GET    | /api/post/findByTags    | Get all posts matching supplied tag |
+| POST   | /api/post      | Create new blog entry               |
+| DELETE | /api/post/{id} | Delete blog entry by its id         |
