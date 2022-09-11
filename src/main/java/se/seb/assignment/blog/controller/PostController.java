@@ -28,6 +28,12 @@ public class PostController {
         return postService.getAllPosts();
     }
 
+    // Get all blog entries by tag(s)
+    @GetMapping("/findByTags")
+    public List<Post> getAllPostsByTags(@RequestParam(value = "tags") List<String> tags){
+        return postService.getPostsByTags(tags);
+    }
+
     // Delete post by ID
     @DeleteMapping("{id}")
     public ResponseEntity<String> deletePost(@PathVariable("id") long id){
