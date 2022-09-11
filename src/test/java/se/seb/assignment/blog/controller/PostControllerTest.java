@@ -46,7 +46,7 @@ class PostControllerTest {
         Set<Tag> tags = new HashSet<>();
         Post post = new Post(1, "TITLE", "CONTENT", now, tags);
 
-        mockMvc.perform(post("/api/blog").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/api/post").contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(post)))
                 .andExpect(status().isCreated())
                 .andDo(print());
@@ -61,7 +61,7 @@ class PostControllerTest {
                 ));
 
         when(postService.getAllPosts()).thenReturn(posts);
-        mockMvc.perform(get("/api/blog"))
+        mockMvc.perform(get("/api/post"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size()").value(posts.size()))
                 .andDo(print());
@@ -85,7 +85,7 @@ class PostControllerTest {
         paramsMap.add("tags", tagValue);
 
         when(postService.getPostsByTags(tags)).thenReturn(posts);
-        mockMvc.perform(get("/api/blog/findByTags").params(paramsMap))
+        mockMvc.perform(get("/api/post/findByTags").params(paramsMap))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size()").value(posts.size()))
                 .andDo(print());
@@ -96,7 +96,7 @@ class PostControllerTest {
         long id = 1L;
 
         doNothing().when(postService).deletePost(id);
-        mockMvc.perform(delete("/api/blog/{id}", id))
+        mockMvc.perform(delete("/api/post/{id}", id))
                 .andExpect(status().isOk())
                 .andDo(print());
     }

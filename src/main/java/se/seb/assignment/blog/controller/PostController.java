@@ -9,7 +9,7 @@ import se.seb.assignment.blog.service.PostService;
 
 import java.util.List;
 
-@RequestMapping("api/blog")
+@RequestMapping("api/post")
 @RestController
 public class PostController {
 
