@@ -6,7 +6,7 @@ build:
 	docker build . -t seb-demo
 
 run:
-	docker run -p 8080 -t seb-demo
+	docker run -p 8080:8080 -t seb-demo
 
 test:
 	./mvnw test
